@@ -2,49 +2,26 @@ for _ in range(int(input())):
     n = int(input())
     s = input()
 
-    # < -- a1 < a2
-    # > -- a1 > a2
+    # the idea here is that we need to check
+    # for substrings with same symbol, with > or < 
+    # say there is a substring with "<" 5 times, then numbers should in form of 1 2 3 4 5 6 (5 + 1 numbers)
+    # there is no other way around this
+    # so if the biggest is this
+    # then the middle elements, meaning movement from > to < or < to > 
+    # can be filled in with the same numbers
+    # or more importantly if 
+    # s[i-1] == ">" and s[i] == "<" we know next will be increasing choosing minimum possible number 
+    # s[i-1] == ">" and s[i] == ">" we know we still need to decrease, so decrease by one, continue the flow
     # 
-    # <<<< 1 2 3 4 5
-    # >>>> 5 4 3 2 1
-    # <<<> 1 2 3 3 2
-    # <<>> 1 2 3 2 1
-    # <>>> 1 4 3 2 1
-    # <><> 1 2 1 2 1
-    # >><< 3 2 1 2 1
-    # <><><>< 1 2 1 2 1 2 1
-
-    # <<>> 1 2 3 2 1
-    # <<>>>>><<< 1 2 3 2 1 0 -1 -2 -1 0
-    # >><<> 
-    # (x) (x-1) (x-2) (x-1) (x) (x-1)
-    #  5    4     3     4    5    4
-    #  3    2     1     2    3    2 
+    # s[i-1] == "<" and s[i] == ">" we know that next will be decreasing so choose the maximum possible number (which is m + 1 where m is the length of longest substring)
+    # s[i-1] == "<" and s[i] == "<" we know we still need to increase, so increase by one, continue the flow
     
-    # >><>><>
-    # 3 2 1 3 2 1 2
-    # x x-1 x-2 x 
-
-    # >><>><>
-    # 100 99 98 100 99 98 100
-    
-    # ><>><>>
-    # 101 100 101 100 99 101 100
-
-    # if there is a transition from < to > 
-    # use the maximum value, say 101
-
-
-
-
-
-
-
-
-
-    
-
-
-    
-
-    
+    max_streak = curr_streak = 1
+    for i in range(1, n):
+        if s[i] == s[i-1]:
+            curr_streak += 1
+        else:
+            max_streak = max(max_streak, curr_streak)
+            curr_streak = 1
+    max_streak = max(max_streak, curr_streak)
+    print(max_streak + 1)
