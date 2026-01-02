@@ -29,3 +29,21 @@ for _ in range(int(input())):
     
     skips = (k-1) // (n-1)
     print(k + skips)
+
+    # q: if I skip few numbers and end up multiple of n ? 
+    #    meaning what if (k+skips) % n == 0
+    #    is this ever possible ? 
+
+    # take (k-1)/(n-1)
+    # k-1 = q(n-1) + r
+    # so -> 0 <= r < n-1
+
+    # answer = k + floor(k-1/n-1)
+    # answer = k + q
+    # answer = q(n-1) + r + 1 + q
+    # answer = qn + r + 1
+    
+    # answer % n = r + 1
+    # from about we know that 0 <= r < n-1
+    # 1 <= r + 1 < n
+    # so r + 1 is never zero and we are never going to fall on divisible number
