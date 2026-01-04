@@ -47,3 +47,5 @@ for _ in range(int(input())):
     # from about we know that 0 <= r < n-1
     # 1 <= r + 1 < n
     # so r + 1 is never zero and we are never going to fall on divisible number
+
+    # same problems, 1296B, 460A

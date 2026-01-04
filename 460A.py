@@ -8,7 +8,10 @@
 #     day += 1
 # print(day)
 
-# same problem: https://codeforces.com/problemset/problem/1352/C
+# same problem: 
+# 1. 1352C
+# 2. 1296B
+# 3. 460A
 
 # think of think problem as
 # 1. on every divisible day, 1 extra socks.
