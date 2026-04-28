@@ -11,7 +11,7 @@ for _ in range(int(input())):
        1. it is always best to use 10 multiples as explained above
        2. think of spending 1 coin each day for 10 days, instead all 10 at once. 
           so, on the 10th day, say 1 use one coin, 1 gain one back. so the net is 0
-          so, 10th day is counted, meaning numbers which are divisible by 10 are not counted. 
+          so, 10th day is not counted, meaning numbers which are divisible by 10 are not counted. 
           so to fit n=22 coins into 9 day groups (because 10th day is skipped.)
 
           total rows needed = ceil(n/9)
